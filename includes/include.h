@@ -3,26 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   include.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ziratya <ziratya@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gvalogne <gvalogne@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 15:50:15 by ziratya           #+#    #+#             */
-/*   Updated: 2024/12/02 16:51:09 by ziratya          ###   ########.fr       */
+/*   Created: 2025/01/30 14:34:39 by gvalogne          #+#    #+#             */
+/*   Updated: 2025/02/04 14:59:30 by gvalogne         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_H
-# define INCLUDE_H
+#ifndef INCLUDES_H
+# define INCLUDES_H
 
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <fcntl.h>
+#include <stdio.h>   // printf, perror
+#include <stdlib.h>  // malloc, free, exit
+#include <unistd.h>  // open, close, read, write
+#include <fcntl.h>   // open (flags)
+#include <string.h>  // strerror
+#include <math.h>    // fonctions mathématiques (-lm)
+#include <errno.h>
+#include "structs.h"
 
+// parsing
 
-int		parsing_map(char *filename);
-int		open_map_file(char *filename);
-char	*read_line(int fd);
+int	parsing_file(int fd);
+
+// str_utils.c
+
+int	ft_strlen(char *str);
+char	**ft_split_lines(char *str);
+
+// alloc_utils.c
+
+char	*ft_realloc(char *str, int size_add);
 
 #endif
